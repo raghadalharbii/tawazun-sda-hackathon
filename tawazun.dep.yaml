@@ -9,6 +9,7 @@ spec:
   selector:
     matchLabels:
       app: Tawazun-app
+      name: raghad
   template:
     metadata:
       labels:
