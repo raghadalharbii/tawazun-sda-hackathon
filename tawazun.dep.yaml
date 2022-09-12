@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tawazun-dep-app
+  labels:
+    app: Tawazun-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Tawazun-app
+  template:
+    metadata:
+      labels:
+        app: Tawazun-app
+
+    spec:
+      containers:
+        - image: raghaddevops/tawazun-sda:2.0
+          name: apps
+          env:
+            - name: DB_URL
+              value: mysql
+            - name: DB_PORT
+              value: '3306'  
+            - name: DB_NAME
+              value: Tawazun  
+            - name: DB_USERNAME
+              value: root  
+            - name: DB_PASSWORD
+              value: DevOps222 
+          ports:
+          - containerPort: 8080
+    
